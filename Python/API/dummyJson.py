@@ -1,13 +1,31 @@
 import requests
 from databaseFunctions import *
 
-baseUrl = "https://dummyjson.com/quotes/random"
+quoteURL = "https://dummyjson.com/quotes/random"
+recipeURL = 'https://dummyjson.com/recipes'
+
 
 def apiOptions():
+    select = int(input("Select which API to interact with:\n1: Quotes\n2: Recipies\n-- "))
+    match select:
+        case 1:
+            apiQuoteOptions()
+        case 2:
+            apiRecipeOptions()
+
+def apiRecipeOptions():
+    select = int(input("Select:\n1: One Random Recipie\n2: Search Recipe\n-- "))
+    match select:
+        case 1:
+            response = requests.get(f"{recipeURL}/meal-type/snack")
+            data = response.json()
+            print(data)
+
+def apiQuoteOptions():
     select = int(input("Select:\n1: Get One Quote\n2: Get Multiple Quotes\n-- "))
     match select:
         case 1:
-            response = requests.get(baseUrl)
+            response = requests.get(quoteURL)
             processResponse(response)
         case 2:
             tries = 0
@@ -17,13 +35,14 @@ def apiOptions():
                     tries += 1
                     print("Plese make sure the nuber is between 1 and 10\n\n")
                 else:
-                    response = requests.get(f"{baseUrl}/{quantity}")
+                    response = requests.get(f"{quoteURL}/{quantity}")
                     processResponse(response)
                     break
             else:
                 ("Too many tries.")
-        
-
+        case 3:
+            response = requests.get(quoteURL)
+            processResponse(response)           
 
 def processResponse(response):
     if response.status_code == 200:
