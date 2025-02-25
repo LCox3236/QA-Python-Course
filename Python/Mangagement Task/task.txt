@@ -1,0 +1,52 @@
+# @abstractmethod - A method declared but not implemented by the abstract-class - therefore it needs implementation
+# @final - A method that cannot be overridden, not actually part of the abc module but often used in conjunction
+# @classmethod - A method that operates at the class level not the instance level.
+# @staticmethod - A static-method isn't tied to the class, it's there for organisational best practice.
+# Static - As a concept refers to object level implementation
+
+# static class car
+# my_car = Car() - single instance - If I am allowed to change things in the static class
+# -> it will influence all occurrences of that class.
+
+# normal class fruit
+# my_fruit, your_fruit - instances
+
+# Deprecation
+# abstractclassmethod -
+# abstractstaticmethod -essentially the same as the @classmethod just on the abstract class specifically
+
+# General concept
+
+# @property - is used to identify getter
+# @property.setter - used to identify setter
+# Any block of code that is implemented at the abc class level can be overridden but doesn't have to be
+
+
+
+# Exercise: System Management and Deployment Automation
+# In this exercise, you will create a set of classes to simulate managing different types of servers and deployment processes. This task will cover key concepts like abstraction, static methods, class methods, final methods, property and setter methods, and deprecation (to be added later as a future task).
+# Task:
+
+# Create an abstract class Server that represents a generic server in your infrastructure. This class should include:
+# Abstract Methods:
+# deploy_application(): Abstract method to deploy an application.
+# stop_server(): Abstract method to stop the server.
+# Static Method:
+# get_server_info(): A static method that provides basic information about the server type (e.g., Linux, Windows).
+# Class Method:
+# get_server_type(cls): A class method that returns the server type ("LinuxServer", "WindowsServer", etc.) based on the class name.
+# Final Method:
+# server_health_check(): A method marked with @final to check the server's health (it cannot be overridden in subclasses). The method will print "Server is healthy" to simulate a simple check.
+# Property and Setter:
+# server_status: A property that returns the status of the server (e.g., "running" or "stopped").
+# server_status: A setter to allow manually changing the server status.
+
+
+# Create two subclasses:
+# LinuxServer: Inherits from Server and implements the abstract methods.
+# WindowsServer: Inherits from Server and implements the abstract methods.
+
+
+# Demonstration:
+# Show how modifying static methods influences all instances of Server.
+# Demonstrate how the @property and @property.setter work with the server's status.
