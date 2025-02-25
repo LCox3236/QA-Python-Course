@@ -1,6 +1,6 @@
 # QA-Python-Course
 
-The Main Part of this Project can be found in the API Folder.
+The Main Part of this Project can be found in the Python/API Folder.
 
 This Allows this user to interact with the Dummy JSON API.
 https://dummyjson.com/
